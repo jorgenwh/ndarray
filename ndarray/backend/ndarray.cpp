@@ -4,11 +4,13 @@
 #include <sstream>
 #include <algorithm>
 
+#include "dtype.h"
 #include "ndarray.h"
 
 template<typename T>
-ndarray<T>::ndarray(std::vector<int> &shape)
+ndarray<T>::ndarray(std::vector<int> &shape, uint16_t dtype)
 {
+  dtype_m = dtype;
   shape_m = shape;
   size_m = 1;
   for (int i = 0; i < shape_m.size(); i++)
@@ -17,10 +19,6 @@ ndarray<T>::ndarray(std::vector<int> &shape)
   }
 
   data_m = new T[size_m];
-  for (int i = 0; i < size_m; i++)
-  {
-    data_m[i] = (T)i;
-  }
 }
 
 template<typename T>
@@ -54,10 +52,28 @@ std::string ndarray<T>::to_string() const
   return oss.str();
 }
 
-template ndarray<int32_t>::ndarray(std::vector<int> &shape);
+template<typename T>
+void ndarray<T>::apply_arange(int start, int end, int step)
+{
+  T v = (T)start;
+  for (int i = 0; i < size_m; i++)
+  {
+    data_m[i] = v;
+    v += (T)step;
+  }
+}
+
+template ndarray<int16_t>::ndarray(std::vector<int> &shape, uint16_t dtype);
+template ndarray<int16_t>::~ndarray();
+template std::string ndarray<int16_t>::to_string() const;
+template void ndarray<int16_t>::apply_arange(int start, int end, int step);
+
+template ndarray<int32_t>::ndarray(std::vector<int> &shape, uint16_t dtype);
 template ndarray<int32_t>::~ndarray();
 template std::string ndarray<int32_t>::to_string() const;
+template void ndarray<int32_t>::apply_arange(int start, int end, int step);
 
-template ndarray<float>::ndarray(std::vector<int> &shape);
+template ndarray<float>::ndarray(std::vector<int> &shape, uint16_t dtype);
 template ndarray<float>::~ndarray();
 template std::string ndarray<float>::to_string() const;
+template void ndarray<float>::apply_arange(int start, int end, int step);

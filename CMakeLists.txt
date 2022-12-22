@@ -12,6 +12,7 @@ set(SOURCE_DIR "ndarray/backend")
 include_directories(${SOURCE_DIR})
 
 set(SOURCES 
+  "${SOURCE_DIR}/dtype.cpp"
   "${SOURCE_DIR}/ndarray.cpp"
 )
 
