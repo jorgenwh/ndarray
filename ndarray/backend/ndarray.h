@@ -6,6 +6,7 @@
 #include <sstream>
 #include <algorithm>
 
+template<typename T>
 class ndarray 
 {
 public:
@@ -20,7 +21,7 @@ public:
 private:
   std::vector<int> shape_m;
   int size_m;
-  //T *data_m;
+  T *data_m;
 };
 
 #endif // NDARRAY_H_

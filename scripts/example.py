@@ -1,5 +1,5 @@
-import ndarray as nda
+import ndarray as nd
 
-arr = nda.zeros(shape=(10), dtype=nda.int32)
+arr = nd.zeros(shape=(10), dtype=nd.float32)
 
 print(arr)
