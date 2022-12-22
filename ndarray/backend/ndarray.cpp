@@ -44,6 +44,11 @@ std::string ndarray<T>::to_string() const
       oss << ", "; 
     }
   }
+
+  if (size_m > 10)
+  {
+    oss << ", ...";
+  }
   oss << "]";
 
   return oss.str();

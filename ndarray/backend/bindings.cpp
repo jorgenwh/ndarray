@@ -24,12 +24,12 @@ void declare_ndarray(py::module &m, const std::string &typestr)
       {
         _shape[i] = shape[i].cast<int>();
       }
-
       return new Class(_shape);
     }))
 
     .def("to_string", &Class::to_string)
-    .def("size", &Class::size)
+    .def_property_readonly("size", &Class::size)
+    .def_property_readonly("shape", &Class::shape)
     ;
 }
 

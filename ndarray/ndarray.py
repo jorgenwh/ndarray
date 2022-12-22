@@ -16,15 +16,23 @@ class ndarray():
         self._shape = shape
         self._dtype = dtype
 
-        if isinstance(shape, int):
-            shape = (shape,)
+        if isinstance(self._shape, int):
+            self._shape = (self._shape,)
         
-        self._backend = _array_types[dtype](shape)
+        self._backend = _array_types[self._dtype](self._shape)
+
+    @property
+    def shape(self):
+        return self._shape
+
+    @property
+    def size(self):
+        return self._backend.size
 
     def __str__(self):
         return self.__repr__()
 
     def __repr__(self):
-        s = f"ndarray({self._backend.to_string()}, dtype={dtype_to_string[self._dtype]})"
-        return s
+        return f"ndarray({self._backend.to_string()}, dtype={dtype_to_string[self._dtype]})"
+
 
