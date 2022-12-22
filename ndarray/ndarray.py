@@ -27,7 +27,7 @@ class ndarray():
     def arange(cls, start, end, step, dtype):
         size = ((end - start) + step - 1) // step
         arr = cls(shape=(size,), dtype=dtype)
-        arr._backend.apply_arange(start, end, step)
+        arr._backend.apply_arange(start, step)
         return arr
 
     @property

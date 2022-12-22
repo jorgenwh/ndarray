@@ -21,7 +21,7 @@ public:
   int bytes() const { return size_m*sizeof(T); }
   std::string to_string() const;
 
-  void apply_arange(int start, int end, int step);
+  void apply_arange(int start, int step);
 private:
   uint16_t dtype_m;
   std::vector<int> shape_m;
