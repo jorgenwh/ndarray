@@ -32,7 +32,7 @@ void declare_ndarray_type(py::module &m, const std::string &typestr)
     .def_property_readonly("size", &Class::size)
     .def_property_readonly("bytes", &Class::bytes)
 
-    .def("_apply_arange", &Class::apply_arange)
+    .def("apply_arange", &Class::apply_arange)
     ;
 }
 
