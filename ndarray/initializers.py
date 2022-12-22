@@ -6,4 +6,4 @@ def zeros(shape, dtype=float32):
     return ndarray(shape, dtype)
 
 def arange(start, end, step=1, dtype=float32):
-    return ndarray._arange(start=start, end=end, step=step, dtype=dtype)
+    return ndarray.arange(start=start, end=end, step=step, dtype=dtype)

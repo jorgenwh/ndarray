@@ -24,7 +24,7 @@ class ndarray():
         self._backend = _array_types[self._dtype](self._shape, int(self._dtype))
 
     @classmethod
-    def _arange(cls, start, end, step, dtype):
+    def arange(cls, start, end, step, dtype):
         size = ((end - start) + step - 1) // step
         arr = cls(shape=(size,), dtype=dtype)
         arr._backend._apply_arange(start, end, step)
