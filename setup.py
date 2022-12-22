@@ -77,7 +77,7 @@ setup(
     author="Jørgen Henriksen",
     description="",
     long_description="",
-    packages=find_packages("ndarray"),
+    packages=["ndarray"],
     ext_modules=[CMakeExtension("ndarray_backend")],
     cmdclass=dict(build_ext=CMakeBuild),
     zip_safe=False,

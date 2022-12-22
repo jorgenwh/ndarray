@@ -12,7 +12,7 @@ set(SOURCE_DIR "ndarray/backend")
 include_directories(${SOURCE_DIR})
 
 set(SOURCES 
-
+  "${SOURCE_DIR}/ndarray.cpp"
 )
 
 if(${CUDA_ERROR_CHECK} MATCHES "True")
